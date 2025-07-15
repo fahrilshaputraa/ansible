@@ -1,0 +1,7 @@
+- name: Check Memory Usage
+  hosts: site
+  become: yes
+  tasks:
+    - name: Display memory information
+      ansible.builtin.debug:
+        var: ansible_memory_mb
