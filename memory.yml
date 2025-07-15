@@ -1,6 +1,7 @@
 - name: Check Memory Usage
   hosts: site
   become: yes
+  become_ask_pass: yes
   tasks:
     - name: Display memory information
       ansible.builtin.debug:
