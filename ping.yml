@@ -1,5 +1,15 @@
 - name: Ping
-  hosts: "{{ server_destionation | default('site') }}"
+  hosts: "{{ server_access | default('site') }}"
   tasks:
     - name: ping
       ansible.builtin.ping:
+    - name: check site if reachable
+      ansible.builtin.assert:
+        url: "{{ server_destination }}"
+        method: GET
+        return_content: no
+      register: result
+    - name: debug result
+      ansible.builtin.debug:
+        var: result
+      when: result is defined and result.status == 200
