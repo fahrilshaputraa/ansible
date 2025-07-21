@@ -1,5 +1,5 @@
 - name: Ping
-  hosts: site
+  hosts: {{ server | default('site') }}
   tasks:
     - name: ping
       ansible.builtin.ping:
