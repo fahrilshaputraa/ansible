@@ -4,7 +4,7 @@
     - name: ping
       ansible.builtin.ping:
     - name: check site if reachable
-      ansible.builtin.assert:
+      ansible.builtin.uri:
         url: "{{ server_ping }}"
         method: GET
         return_content: no
