@@ -1,11 +1,11 @@
 - name: Ping
-  hosts: "{{ server_access | default('site') }}"
+  hosts: "{{ server_destination | default('site') }}"
   tasks:
     - name: ping
       ansible.builtin.ping:
     - name: check site if reachable
       ansible.builtin.assert:
-        url: "{{ server_destination }}"
+        url: "{{ server_ping }}"
         method: GET
         return_content: no
       register: result
