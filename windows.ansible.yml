@@ -1,0 +1,7 @@
+---
+- name: Ping Windows Server
+  hosts: {{ destination_host | default('server') }}
+  gather_facts: no
+  tasks:
+    - name: Ping Windows host
+      win_ping:
