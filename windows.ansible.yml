@@ -14,3 +14,10 @@
   tasks:
     - name: Ping Windows host
       ansible.windows.win_ping:
+      
+    - name: Restart Windows Server
+      win_reboot:
+        msg: "Restarting Windows Server"
+        pre_reboot_delay: 5
+        post_reboot_delay: 30
+        test_command: whoami
