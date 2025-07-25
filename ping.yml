@@ -3,13 +3,3 @@
   tasks:
     - name: ping
       ansible.builtin.ping:
-    - name: check site if reachable
-      ansible.builtin.uri:
-        url: "{{ server_ping }}"
-        method: GET
-        return_content: no
-      register: result
-    - name: debug result
-      ansible.builtin.debug:
-        var: result
-      when: result is defined and result.status == 200
